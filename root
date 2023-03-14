@@ -1,0 +1,15 @@
+#30 05 * * * ffmpeg -re -i http://cnlive.cnr.cn/hls/hjyyzs.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/hjyyzs &
+#31 05 * * * ffmpeg -re -i http://ngcdn001.cnr.cn/live/zgzs/index.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/zgzs1 &
+#32 05 * * * ffmpeg -re -i http://ngcdn002.cnr.cn/live/jjzs/index.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/jjzs2 &
+#33 05 * * * ffmpeg -re -i http://ngcdn003.cnr.cn/live/yyzs/index.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/yyzs3 &
+#34 05 * * * ffmpeg -re -i http://ngcdn004.cnr.cn/live/dszs/index.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/dszs4 &
+#35 05 * * * ffmpeg -re -i http://ngcdn005.cnr.cn/live/zhzs/index.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/zhzs5 &
+#36 05 * * * ffmpeg -re -i http://ngcdn006.cnr.cn/live/szzs/index.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/szzs6 &
+#37 05 * * * ffmpeg -re -i http://ngcdn007.cnr.cn/live/hxzs/index.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/hxzs7 &
+#38 05 * * * ffmpeg -re -i http://ngcdn008.cnr.cn/live/xgzs/index.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/xgzs8 &
+#39 05 * * * ffmpeg -re -i http://ngcdn009.cnr.cn/live/mzzs/index.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/mzzs9 &
+#40 05 * * * ffmpeg -re -i http://ngcdn010.cnr.cn/live/wyzs/index.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/wyzs10 &
+#41 05 * * * ffmpeg -re -i http://ngcdn013.cnr.cn/live/wygb/index.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/wygb13 &
+#42 05 * * * ffmpeg -re -i http://ngcdn014.cnr.cn/live/ylgb/index.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/ylgb14 &
+#43 05 * * * ffmpeg -re -i http://ngcdn016.cnr.cn/live/gsgljtgb/index.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/gsgljtgb16 &
+#44 05 * * * ffmpeg -re -i http://ngcdn017.cnr.cn/live/xczs/index.m3u8 -ar 22050 -threads 1 -ac 1 -f mp3 icecast://source:hackme@192.168.36.1:8001/xczs17 &

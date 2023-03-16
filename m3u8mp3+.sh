@@ -18,6 +18,3 @@ stop=0
 FFMPEG
 fi
 done
-
-
-

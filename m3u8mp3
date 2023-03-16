@@ -1,0 +1,20 @@
+#!/bin
+
+while true;do
+if [ -z "$(ps | grep ngcdn001)" ];then
+      ffmpeg -re -i "http://ngcdn001.cnr.cn/live/zgzs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/zgzs1"
+
+elif [ -z "$(ps | grep ngcdn002)" ];then
+      ffmpeg -re -i "http://ngcdn002.cnr.cn/live/jjzs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/jjzs2"
+
+elif [ -z "$(ps | grep ngcdn003)" ];then
+      ffmpeg -re -i "http://ngcdn003.cnr.cn/live/yyzs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/yyzs3"
+
+elif [ -z "$(ps | grep ngcdn004)" ];then
+      ffmpeg -re -i "http://ngcdn004.cnr.cn/live/dszs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/dszs4"
+
+else
+echo Streaming succeeded
+fi
+sleep 4
+done

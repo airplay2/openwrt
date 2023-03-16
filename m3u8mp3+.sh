@@ -18,6 +18,7 @@ if [ "$ffmpeg" = "ffmpeg" ]; then
 sleep 5
 echo 进程正常
 else
+stop=0
 echo 好像进程不在
 FFMPEG
 fi

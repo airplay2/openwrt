@@ -1,0 +1,19 @@
+
+#!/bin
+# ffmpeg推送m3u8变MP3流
+ while true;do
+if [ "$(ps | grep -E "ffmpeg" | awk -F ' ' {'print $5'} | awk "NR==1") = "ffmpeg" ]; then
+sleep 4
+echo Streaming succeeded
+else
+#获取返回数据，没有就推
+if [ -z "$(ps |grep  http://ngcdn001.cnr.cn/live/zgzs/index.m3u8)" ];then
+      ffmpeg -re -i "http://ngcdn001.cnr.cn/live/zgzs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/zgzs1"
+elif  [ -z "$(ps |grep  http://ngcdn002.cnr.cn/live/zgzs/index.m3u8)" ];then
+
+      ffmpeg -re -i "http://ngcdn002.cnr.cn/live/zgzs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/zgzs1"
+elif  [ -z "$(ps |grep  http://ngcdn003.cnr.cn/live/zgzs/index.m3u8)" ];then
+      ffmpeg -re -i "http://ngcdn003.cnr.cn/live/zgzs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/zgzs1"
+fi
+
+done

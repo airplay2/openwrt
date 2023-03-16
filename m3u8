@@ -17,3 +17,10 @@ elif  [ -z "$(ps |grep  http://ngcdn003.cnr.cn/live/zgzs/index.m3u8)" ];then
 fi
 
 done
+
+
+--------------------------------------------
+ps | grep ffmpeg | grep -v grep | awk '{print$8}'
+--------------------------------------------
+http://cnlive.cnr.cn/hls/hjyyzs.m3u8
+http://ngcdn001.cnr.cn/live/zgzs/index

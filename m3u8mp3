@@ -2,10 +2,6 @@
 
 while true;do
 
-if [ $(busybox ps | grep m3u8mp3 | grep -v grep | awk '{print$1}' | wc -l) -gt 2 ];then
-	kill -9 $(busybox ps | grep m3u8mp3 | grep -v grep | head -n1 | awk '{print$1}')
-fi
-
 if [ -z "$(ps | grep ngcdn001 | sed '1!d')" ];then
       ffmpeg -re -i "http://ngcdn001.cnr.cn/live/zgzs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/zgzs1"
 

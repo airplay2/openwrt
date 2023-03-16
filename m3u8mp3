@@ -1,17 +1,32 @@
-#!/bin
+#!/bin/sh
 
 while true;do
-if [ -z "$(ps | grep ngcdn001)" ];then
+if [ -z "$(ps | grep ngcdn001 | sed '1!d')" ];then
       ffmpeg -re -i "http://ngcdn001.cnr.cn/live/zgzs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/zgzs1"
 
-elif [ -z "$(ps | grep ngcdn002)" ];then
+elif [ -z "$(ps | grep ngcdn002 | sed '1!d')" ];then
       ffmpeg -re -i "http://ngcdn002.cnr.cn/live/jjzs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/jjzs2"
 
-elif [ -z "$(ps | grep ngcdn003)" ];then
+elif [ -z "$(ps | grep ngcdn003 | sed '1!d')" ];then
       ffmpeg -re -i "http://ngcdn003.cnr.cn/live/yyzs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/yyzs3"
 
-elif [ -z "$(ps | grep ngcdn004)" ];then
+elif [ -z "$(ps | grep ngcdn004 | sed '1!d')" ];then
       ffmpeg -re -i "http://ngcdn004.cnr.cn/live/dszs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/dszs4"
+
+elif [ -z "$(ps | grep ngcdn009 | sed '1!d')" ];then
+      ffmpeg -re -i "http://ngcdn009.cnr.cn/live/mzzs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/mzzs9"
+
+elif [ -z "$(ps | grep ngcdn010 | sed '1!d')" ];then
+      ffmpeg -re -i "http://ngcdn010.cnr.cn/live/wyzs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/wyzs10"
+
+elif [ -z "$(ps | grep ngcdn014 | sed '1!d')" ];then
+      ffmpeg -re -i "http://ngcdn014.cnr.cn/live/ylgb/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/ylgb14"
+
+elif [ -z "$(ps | grep ngcdn017 | sed '1!d')" ];then
+      ffmpeg -re -i "http://ngcdn017.cnr.cn/live/xczs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/xczs17"
+
+elif [ -z "$(ps | grep hjyyzs | sed '1!d')" ];then
+      ffmpeg -re -i "http://cnlive.cnr.cn/hls/hjyyzs.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.31.1:8001/hjyyzs"
 
 else
 echo Streaming succeeded

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+while true;do
+
+if [ -z "$(ps | grep ngcdn017 | sed '1!d')" ];then
+      ffmpeg -re -i "http://ngcdn017.cnr.cn/live/xczs/index.m3u8" -ar 44100 -threads 1 -ac 1 -f mp3 "icecast://source:hackme@192.168.36.1:8001/xczs17"
+else
+echo Streaming succeeded
+fi
+sleep 3
+done

@@ -1,10 +1,46 @@
 #!/bin/sh
+
+audurllist="/usr/radio/audurllist"
+FILE="/tmp/addmpg123.count.tmp"
+
+if [ ! -f "$FILE" ];then
+	echo 1 > /tmp/addmpg123.count.tmp
+fi
+
+count="$(cat $FILE)"
+
+if [ $count -gt 1 ];then
+	echo $(expr $count + 1) > /tmp/addmpg123.count.tmp
+	count=$count
+fi
+
+if [ $(busybox ps | grep weburlplay | grep -v grep | awk '{print$1}' | wc -l) -ge 1 ];then
+	kill -9 $(busybox ps | grep weburlplay | grep -v grep | head -n1 | awk '{print$1}')
+fi
+
+if [ $(busybox ps | grep addmpg123 | grep -v grep | awk '{print$1}' | wc -l) -gt 2 ];then
+	kill -9 $(busybox ps | grep addmpg123 | grep -v grep | head -n1 | awk '{print$1}')
+fi
+
+ralist="$(cat $audurllist)"
+total=$(echo $ralist | sed 's/ /\n/g' | wc -l)
+
+	if [ $count -gt $total ];then
+		count=1
+		echo $count > /tmp/addmpg123.count.tmp
+	fi
+	target="$(echo $ralist | cut -d ' ' -f $count | sed 's/.mp3.*/\.mp3/')"
+	theurl="${target}"
+	mpg123 $theurl  >/root/w 2>&1 &
+	count=$(expr $count + 1)
+	echo $count > /tmp/addmpg123.count.tmp
+
 while true;do
 if [ -z "$(ps | grep http | awk -F mpg123 {'print $2'})" ];then
-mpg123 http://lhttp.qingting.fm/live/1676/64k.mp3  >/root/w 2>&1 &
+mpg123 $theurl  >/root/w 2>&1 && echo 1 > /sys/class/leds/tp-link:green:system/brightness && echo 0 > /sys/class/leds/tp-link:green:wlan/brightness && echo $(date +%F%n%T) $theurl play error >> /tmp/radio.tmp &
 sleep 1
 [ -z "$(cat /root/w |grep  Playing)" ] && kill -9 $(ps |grep mpg123 | awk '{print $1}')
 fi
-echo 播放正常
+echo 1 > /sys/class/leds/tp-link:green:wlan/brightness
 sleep 2
 done

@@ -1,3 +1,4 @@
+#!/bin/sh
 while true;do
 if [ -z "$(ps | grep http | awk -F mpg123 {'print $2'})" ];then
 mpg123 http://lhttp.qingting.fm/live/1676/64k.mp3  >/root/w 2>&1 &
